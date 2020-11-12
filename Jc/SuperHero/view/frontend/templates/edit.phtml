@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var $block \Jc\SuperHero\Block\Display
+ */
+// var_dump($block->getIdentities('id'));
+
+//echo var_dump($block->getCollectionId());
+
+$customerData = $block->getEditRecord();
+// var_dump($block->getAllSuperHeroes()->getData('id'));
+?>
+<?php
+
+//  echo $_GET['id'];
+?>
+<div class="container">
+    <h3>Welcome to update your data</h3>
+      <form method="post" action="<?php $block->getEditRecord()?>" margin="2px 3px" autocomplete="off"> 
+           <fieldset width="50%" display="block" margin="auto">
+                <div>
+                     <label for="name"><?=__("Name") ?></label>
+                     <input type="text" name="name" id="name" value="<?php echo $customerData['name']; ?>" required/>
+                </div>
+                <div>
+                     <label for="production_company"><?=__("Description")?></label>
+                     <input type="text" name="description" id="description" value="<?php echo $customerData['description']; ?>" required />
+                </div>
+                <input type="submit" value="<?=__("Update It")?>"/>
+           </fieldset>
+      </form>  
+</div>

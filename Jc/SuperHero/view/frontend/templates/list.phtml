@@ -1,0 +1,56 @@
+<?php
+/** @var $block \Jc\SuperHero\Block\Display
+ * @var $block \Jc\SuperHero\Block\Edit
+ */
+//echo '12321';die;
+//var_dump($block->getAllSuperHeroes()->getData());
+//$heroes =$block->getAllSuperHeroes()->getData();  // collection should multidimensional array
+
+$heroes = $block->getAllSuperHeroes();
+
+?>
+                                                                                                                                                                                                                                                                    
+<link rel="stylesheet" href="abhi.css"/>
+<style>
+</style>
+
+<?php if(count($heroes) > 0): ?>
+<table barder="1">
+     <h3>Notes Table</h3>
+     <tr>
+          <th><?=__("Id")?></th>
+          <th><?=__("Name")?></th>
+          <th><?=__("Description")?></th>
+          <th><?=__("Action")?></th>
+     </tr>
+ <!-- // hero variable is nothing but our model  -->
+     <?php foreach ($heroes as $hero): ?>
+          <tr>
+               <td><?= $hero->getId()?></td>
+               <td><?= $hero->getName()?></td>
+               <td><?= $hero->getDescription()?></td>
+               <td><a href="<?=$block->getUrl('superhero/index/edit').'id/'.$hero->getId('id');?>">Edit </a><a href="<?= $block->getDeleteUrl().'id/'.$hero->getId('id');?>"> Delete</a></td>
+          </tr>
+     <?php endforeach; ?>
+</table>
+
+<!-- else where i have to insert notes -->
+<?php else: ?> <?php endif; ?>
+
+<div class="container">
+    <h3>Welcome to Notes</h3>
+      <form method="post" action="<?=$block->getPostUrl()?>" margin="2px 3px" autocomplete="off"> 
+           <fieldset width="50%" display="block" margin="auto">
+                <div>
+                     <label for="name"><?=__("Name") ?></label>
+                     <input type="text" name="name" id="name" required/>
+                </div>
+                <div>
+                     <label for="production_company"><?=__("Description")?></label>
+                     <input type="text" name="description" id="description" required />
+                </div>
+                <input type="submit" value="<?=__("Add It")?>"/>
+           </fieldset>
+      </form>  
+</div>
+
