@@ -13,19 +13,70 @@ $customerData = $block->getEditRecord();
 
 //  echo $_GET['id'];
 ?>
+
+<style>
+     body{
+          background-color: #363e3c;
+          color: white;
+          }
+     #heading{
+          font-size: 30px;
+          font-weight: 600;
+          text-decoration: underline;
+     }
+     #form-1{
+          padding: 18px 3px;
+          width: 85%;
+          background-color: #86845e;
+          display: block;
+          margin: 52px auto;
+          border-radius: 85px;
+     }
+     fieldset
+     {
+          margin: 11px 41px;
+          border: 1px solid black;
+          border-radius: 22px;  
+     }
+     .inputcontainer{
+          margin: 20px 0px;
+          padding: 1px 67px;
+                    }
+     .inputlabel{
+          font-size: 24px;
+          font-weight: 600;
+          font-family: cursive;
+          margin: 13px 0px;
+          padding: 11px 3px;
+     }
+     #button{
+          width: 158px;
+          height: 49px;
+          display: block;
+          margin: auto;
+          font-size: 29px;
+          background-color: #252525;
+          color: white;
+          border-radius: 25px;
+     }
+     #button:hover{
+          background-color: red;
+     }
+
+</style>
 <div class="container">
-    <h3>Welcome to update your data</h3>
-      <form method="post" action="<?php $block->getEditRecord()?>" margin="2px 3px" autocomplete="off"> 
-           <fieldset width="50%" display="block" margin="auto">
-                <div>
-                     <label for="name"><?=__("Name") ?></label>
+    <h3 id="heading">Update Yourself</h3>
+      <form id="form-1" method="post" action="<?php $block->getEditRecord()?>" margin="2px 3px" autocomplete="off"> 
+           <fieldset >
+                <div class="inputcontainer">
+                     <label for="name" class="inputlabel"><?=__("Name") ?></label>
                      <input type="text" name="name" id="name" value="<?php echo $customerData['name']; ?>" required/>
                 </div>
-                <div>
-                     <label for="production_company"><?=__("Description")?></label>
+                <div class="inputcontainer">
+                     <label for="production_company" class="inputlabel"><?=__("Description")?></label>
                      <input type="text" name="description" id="description" value="<?php echo $customerData['description']; ?>" required />
                 </div>
-                <input type="submit" value="<?=__("Update It")?>"/>
+                <input id="button" type="submit" value="<?=__("Update It")?>"/>
            </fieldset>
       </form>  
 </div>

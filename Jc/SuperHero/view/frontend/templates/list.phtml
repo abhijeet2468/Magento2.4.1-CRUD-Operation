@@ -10,12 +10,88 @@ $heroes = $block->getAllSuperHeroes();
 
 ?>
                                                                                                                                                                                                                                                                     
-<link rel="stylesheet" href="abhi.css"/>
+<!-- <link rel="stylesheet" href="abhi.css"/>  -->
 <style>
+  body{
+     background-color: #352d2d;
+    color: whitesmoke;
+  }
+  h3{
+     background-color: #bdbd86;
+    width: 27%;
+    height: 37px;
+    display: block;
+    margin: 40px auto;
+    color: black;
+    font-size: 33px;
+    text-align: center;
+    border: 1px solid #0e0d0d;
+    border-radius: 20px;
+    padding: 5px 3px;
+  }
+  .form-1{
+     width: 75%;
+    margin: 39px auto;
+    background-color: #565a56;
+    color: white;
+    padding: 60px 26px;
+    border: 1px solid #a5a398;
+    border-radius: 13px;
+  }
+  fieldset{
+     width: 42%;
+    height: 243px;
+    display: block;
+    margin: auto;
+    background-color: #2a403e;
+    border-radius: 29px;
+  }
+  label{
+     font-size: 23px;
+    margin: 7px 0px;
+    color: #c1be57;
+    font-weight: 600;
+    font-family: initial;
+  }
+  .button{
+     width: 131px;
+    height: 43px;
+    font-size: 26px;
+    background-color: #615607;
+    color: white;
+    margin: 15px auto;
+    display: block;
+    border: 1px solid grey;
+    border-radius: 22px
+  }
+  .button:hover{
+     background-color: #114232;
+     font-size:30px;
+  }
+  .input-1{
+     margin: 24px 3px;
+  }
+  table{
+     width: 45%;
+    display: block;
+    margin: auto;
+    background-color: #868e12a6;
+  }
+  td a{
+     color: #e6aa22;;
+    font-size: 18px;
+    font-family: auto;
+    text-decoration: revert;
+  }
+  td a:hover{
+     background-color: #BDB4C4;
+    text-decoration: none;
+    color: white;
+  }
 </style>
 
 <?php if(count($heroes) > 0): ?>
-<table barder="1">
+<table border="1px">
      <h3>Notes Table</h3>
      <tr>
           <th><?=__("Id")?></th>
@@ -29,7 +105,7 @@ $heroes = $block->getAllSuperHeroes();
                <td><?= $hero->getId()?></td>
                <td><?= $hero->getName()?></td>
                <td><?= $hero->getDescription()?></td>
-               <td><a href="<?=$block->getUrl('superhero/index/edit').'id/'.$hero->getId('id');?>">Edit </a><a href="<?= $block->getDeleteUrl().'id/'.$hero->getId('id');?>"> Delete</a></td>
+               <td><a class="anchortag" href="<?=$block->getUrl('superhero/index/edit').'id/'.$hero->getId('id');?>">Edit </a><a class="anchortag" href="<?= $block->getDeleteUrl().'id/'.$hero->getId('id');?>"> Delete</a></td>
           </tr>
      <?php endforeach; ?>
 </table>
@@ -39,17 +115,17 @@ $heroes = $block->getAllSuperHeroes();
 
 <div class="container">
     <h3>Welcome to Notes</h3>
-      <form method="post" action="<?=$block->getPostUrl()?>" margin="2px 3px" autocomplete="off"> 
+      <form method="post" action="<?=$block->getPostUrl()?>" class="form-1" autocomplete="off"> 
            <fieldset width="50%" display="block" margin="auto">
-                <div>
+                <div class="input-1">
                      <label for="name"><?=__("Name") ?></label>
-                     <input type="text" name="name" id="name" required/>
+                     <input class="inp" type="text" name="name" id="name" required/>
                 </div>
-                <div>
+                <div class="input-1">
                      <label for="production_company"><?=__("Description")?></label>
-                     <input type="text" name="description" id="description" required />
+                     <input class="inp" type="text" name="description" id="description" required />
                 </div>
-                <input type="submit" value="<?=__("Add It")?>"/>
+                <input class="button" type="submit" value="<?=__("Add It")?>"/>
            </fieldset>
       </form>  
 </div>
